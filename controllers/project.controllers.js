@@ -11,10 +11,10 @@ const getAllProjects = (req, res, next) => {
             path: 'author',
             select: 'username'
         })
-        .populate({
-            path: 'media',
-            select: 'url'
-        })
+        // .populate({
+        //     path: 'media',
+        //     select: 'url'
+        // })
         .sort({ createdAt: 1 })
         .then(response => res.json(response))
         .catch(err => next(err))
@@ -33,9 +33,9 @@ const getOneProject = (req, res, next) => {
             select: 'username'
 
         })
-        .populate({
-            path: 'media'
-        })
+        // .populate({
+        //     path: 'media'
+        // })
         .then(response => res.json(response))
         .catch(err => next(err))
 

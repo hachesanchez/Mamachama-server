@@ -25,8 +25,12 @@ const projectSchema = new mongoose.Schema({
     },
     media: [
         {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Media',
+            type: {
+                type: String // 'image' or 'video' 
+            },
+            url: {
+                type: String
+            },
         },
     ],
     tags: [
