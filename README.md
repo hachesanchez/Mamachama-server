@@ -1,4 +1,4 @@
-# El-Megafono-server
+# Mamachama-server
 
 ## Auth Routes
 Base URL `/api/auth`
@@ -48,7 +48,7 @@ Base URL `/api/users`
 | PUT           | `/edit/:id`                     | Edit user profile       | isAuthenticated        |
 | DELETE        | `/delete/:id`                   | Delete user profile     | isAuthenticated        |
 
-## Blog Routes
+<!-- ## Blog Routes
 Base URL `/api/blog`
 
 | HTTP Method   | URI Path                   | Description                      | Middleware            |
@@ -57,7 +57,7 @@ Base URL `/api/blog`
 | GET           | `/getOnePost/:id`          | Get one post by ID               | None                  |
 | POST          | `/savePost`                | Save new post                    | isAuthenticated       |
 | PUT           | `/edit/:id`                | Edit post by ID                  | isAuthenticated       |
-| DELETE        | `/delete/:id`              | Delete post by ID                | isAuthenticated       |
+| DELETE        | `/delete/:id`              | Delete post by ID                | isAuthenticated       | -->
 
 
 ## Test Routes

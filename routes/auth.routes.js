@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const { isAuthenticated } = require('../middlewares/verifyToken.middleware')
 
 const {
     signup,
@@ -8,6 +9,6 @@ const {
 
 router.post('/signup', signup)
 router.post('/login', login)
-router.get('/verify', verify)
+router.get('/verify', isAuthenticated, verify)
 
 module.exports = router
