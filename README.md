@@ -9,6 +9,7 @@ Base URL `/api/auth`
 | POST          | `/login`       | Login user              |
 | GET           | `/verify`      | Verify Auth Token       |
 
+
 ## Project Routes
 Base URL `/api/project`
 
