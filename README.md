@@ -20,6 +20,30 @@ Base URL `/api/project`
 | PUT           | `/edit/:id`                     | Edit Project by ID      | isAuthenticated       |
 | DELETE        | `/delete/:id`                   | Delete Project by ID    | isAuthenticated       |
 
+
+
+## Users Routes
+Base URL `/api/users`
+
+| HTTP Method   | URI Path                        | Description             | Middleware             |
+| ------------- | ------------------------------- | ----------------------- | ---------------------- |
+| GET           | `/getAllUsers`                  | Get all users           | None                   |
+| GET           | `/getOneUser/:id`               | Get one user by ID      | None                   |
+| GET           | `/getCollaborators`             | Get all Collaborators   | None                   |
+| GET           | `/getMamachama`                 | Get all Team Users      | None                   |
+| GET           | `/getPartner`                   | Get all Partners        | None                   |
+| PUT           | `/edit/:id`                     | Edit user profile       | isAuthenticated        |
+| DELETE        | `/delete/:id`                   | Delete user profile     | isAuthenticated        |
+
+
+## Upload Routes
+Base URL `/api/upload`
+
+| HTTP Method   | URI Path       | Description                 | Middleware            |
+| ------------- | -------------- | --------------------------- | --------------------- |
+| POST          | `/image`       | Upload image to Cloudinary  | isAuthenticated       |
+<!-- 
+
 ## Collaborator's Routes
 Base URL `/api/collaborators`
 
@@ -31,24 +55,8 @@ Base URL `/api/collaborators`
 | PUT           | `/edit/:id`                | Edit collaborator by ID          | isAuthenticated       |
 | DELETE        | `/delete/:id`              | Delete collaborator by ID        | isAuthenticated       |
 
-## Upload Routes
-Base URL `/api/upload`
 
-| HTTP Method   | URI Path       | Description                 | Middleware            |
-| ------------- | -------------- | --------------------------- | --------------------- |
-| POST          | `/image`       | Upload image to Cloudinary  | isAuthenticated       |
-
-## Users Routes
-Base URL `/api/users`
-
-| HTTP Method   | URI Path                        | Description             | Middleware             |
-| ------------- | ------------------------------- | ----------------------- | ---------------------- |
-| GET           | `/getAllUsers`                  | Get all users           | isAuthenticated        |
-| GET           | `/getOneUser/:id`               | Get one user by ID      | isAuthenticated        |
-| PUT           | `/edit/:id`                     | Edit user profile       | isAuthenticated        |
-| DELETE        | `/delete/:id`                   | Delete user profile     | isAuthenticated        |
-
-<!-- ## Blog Routes
+## Blog Routes
 Base URL `/api/blog`
 
 | HTTP Method   | URI Path                   | Description                      | Middleware            |

@@ -4,7 +4,7 @@ const userSchema = new Schema(
   {
     email: {
       type: String,
-      required: [true, 'Email is required.'],
+      required: false,
       unique: true,
       lowercase: true,
       trim: true
@@ -25,6 +25,12 @@ const userSchema = new Schema(
     description: {
       type: String,
       required: [true, 'Description is mandatory']
+    },
+    relation: {
+      type: String,
+      default: 'Collaborator',
+      enum: ['Team Mamachama', 'Collaborator', 'Partner'],
+      required: [true, 'Relation with Mamachama must be specified']
     },
     projects: [{
       type: Schema.Types.ObjectId,
