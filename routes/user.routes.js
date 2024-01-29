@@ -6,6 +6,7 @@ const {
     getMamachama,
     getCollaborators,
     getPartner,
+    getUserProjects,
     editUser,
     deleteUser
 } = require('../controllers/user.controllers')
@@ -16,6 +17,7 @@ router.get('/getOneUser/:id', getOneUser)
 router.get('/getMamachama', getMamachama)
 router.get('/getCollaborators', getCollaborators)
 router.get('/getPartner', getPartner)
+router.get('/getUserProjects/:id', getUserProjects)
 router.put('/edit/:id', isAuthenticated, editUser)
 router.delete('/delete/:id', isAuthenticated, deleteUser)
 

@@ -33,6 +33,7 @@ Base URL `/api/users`
 | GET           | `/getCollaborators`             | Get all Collaborators   | None                   |
 | GET           | `/getMamachama`                 | Get all Team Users      | None                   |
 | GET           | `/getPartner`                   | Get all Partners        | None                   |
+| GET           | `/getUserProjects/:id`              | Get user's projects     | None                   |
 | PUT           | `/edit/:id`                     | Edit user profile       | isAuthenticated        |
 | DELETE        | `/delete/:id`                   | Delete user profile     | isAuthenticated        |
 

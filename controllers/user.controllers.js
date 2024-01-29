@@ -73,6 +73,26 @@ const getPartner = (req, res, next) => {
 }
 
 
+const getUserProjects = (req, res, next) => {
+
+    const { id } = req.params;
+
+    User
+        .findById(id)
+        .populate({
+            path: 'projects',
+            select: 'title featuredImage description tags createdAt'
+        })
+        .then(user => {
+            if (!user) {
+                return res.status(404).json({ message: 'User not found' });
+            }
+            res.json(user.projects);
+        })
+        .catch(err => next(err));
+};
+
+
 const editUser = (req, res, next) => {
 
     const { email, username, avatar, description, relation } = req.body
@@ -97,6 +117,8 @@ const deleteUser = (req, res, next) => {
         .catch(err => next(err))
 }
 
+//TODO: Include controler for getUserProjects
+
 
 
 module.exports = {
@@ -105,6 +127,7 @@ module.exports = {
     getMamachama,
     getCollaborators,
     getPartner,
+    getUserProjects,
     editUser,
     deleteUser
 }
