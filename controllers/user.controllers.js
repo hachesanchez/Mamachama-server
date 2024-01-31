@@ -95,10 +95,10 @@ const getUserProjects = (req, res, next) => {
 
 const editUser = (req, res, next) => {
 
-    const { email, username, avatar, description, relation } = req.body
+    const { email, username, avatar, description, relation, projects } = req.body
     const { id } = req.params
 
-    const updateUser = { email, username, avatar, description, relation }
+    const updateUser = { email, username, avatar, description, relation, projects }
 
     User
         .findByIdAndUpdate(id, updateUser, { new: true })
