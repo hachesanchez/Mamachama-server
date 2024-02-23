@@ -7,7 +7,7 @@ const getAllUsers = (req, res, next) => {
     User
         .find()
         .select({ username: 1, avatar: 1, description: 1, relation: 1, projects: 1 })
-        .sort({ relation: 1, username: 1 })
+        .sort({ username: 1 })
         .then(response => res.json(response))
         .catch(err => next(err))
 }
