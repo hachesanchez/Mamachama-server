@@ -26,12 +26,27 @@ const userSchema = new Schema(
       type: String,
       required: [true, 'Description is mandatory']
     },
+    occupation: {
+      type: String,
+      required: [true, 'Occupation is mandatory']
+    },
     relation: {
       type: String,
       default: 'Collaborator',
       enum: ['Team Mamachama', 'Collaborator', 'Partner'],
       required: [true, 'Relation with Mamachama must be specified']
     },
+    socialMedia: [{
+      platform: {
+        type: String,
+        enum: ['Facebook', 'LinkedIn', 'Instagram', 'YouTube'],
+        required: false
+      },
+      url: {
+        type: String,
+        required: false
+      }
+    }],
     projects: [{
       type: Schema.Types.ObjectId,
       ref: 'Project'

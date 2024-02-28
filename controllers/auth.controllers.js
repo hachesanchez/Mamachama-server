@@ -6,7 +6,7 @@ const saltRounds = 10
 
 const signup = (req, res, next) => {
 
-    const { email, password, username, avatar, description, relation, projects } = req.body
+    const { email, password, username, avatar, description, relation, occupation, socialMedia, projects } = req.body
 
     if (password.length < 2) {
         res.status(400).json({ message: 'Password must have at least 2 characters' })
@@ -25,12 +25,12 @@ const signup = (req, res, next) => {
             const salt = bcrypt.genSaltSync(saltRounds)
             const hashedPassword = bcrypt.hashSync(password, salt)
 
-            return User.create({ email, password: hashedPassword, username, avatar, description, relation, projects })
+            return User.create({ email, password: hashedPassword, username, avatar, description, relation, occupation, socialMedia, projects })
         })
         .then((createdUser) => {
 
-            const { email, username, role, avatar, description, relation, projects, location, _id } = createdUser
-            const user = { email, username, role, avatar, description, relation, projects, location, _id }
+            const { email, username, role, avatar, description, relation, occupation, socialMedia, projects, location, _id } = createdUser
+            const user = { email, username, role, avatar, description, relation, occupation, socialMedia, projects, location, _id }
 
             res.status(201).json({ user })
         })
@@ -63,9 +63,9 @@ const login = (req, res, next) => {
 
             if (bcrypt.compareSync(password, foundUser.password)) {
 
-                const { _id, email, username, avatar, description, relation, projects } = foundUser;
+                const { _id, email, username, avatar, description, relation, occupation, socialMedia, projects } = foundUser;
 
-                const payload = { _id, email, username, avatar, description, relation, projects }
+                const payload = { _id, email, username, avatar, description, relation, occupation, socialMedia, projects }
 
                 const authToken = jwt.sign(
                     payload,

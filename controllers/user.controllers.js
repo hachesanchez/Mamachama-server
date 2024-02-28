@@ -6,7 +6,7 @@ const getAllUsers = (req, res, next) => {
 
     User
         .find()
-        .select({ username: 1, avatar: 1, description: 1, relation: 1, projects: 1 })
+        .select({ username: 1, avatar: 1, description: 1, relation: 1, occupation: 1, socialMedia: 1, projects: 1 })
         .sort({ username: 1 })
         .then(response => res.json(response))
         .catch(err => next(err))
@@ -36,7 +36,7 @@ const getMamachama = (req, res, next) => {
             path: 'projects',
             select: 'title'
         })
-        .select({ username: 1, avatar: 1, description: 1, relation: 1, projects: 1 })
+        .select({ username: 1, avatar: 1, description: 1, relation: 1, occupation: 1, socialMedia: 1, projects: 1 })
         .sort({ username: 1 })
         .then(response => res.json(response))
         .catch(err => next(err))
@@ -51,7 +51,7 @@ const getCollaborators = (req, res, next) => {
             path: 'projects',
             select: 'title'
         })
-        .select({ username: 1, avatar: 1, description: 1, relation: 1, projects: 1 })
+        .select({ username: 1, avatar: 1, description: 1, relation: 1, occupation: 1, socialMedia: 1, projects: 1 })
         .sort({ username: 1 })
         .then(response => res.json(response))
         .catch(err => next(err))
@@ -66,7 +66,7 @@ const getPartner = (req, res, next) => {
             path: 'projects',
             select: 'title'
         })
-        .select({ username: 1, avatar: 1, description: 1, relation: 1, projects: 1 })
+        .select({ username: 1, avatar: 1, description: 1, relation: 1, occupation: 1, socialMedia: 1, projects: 1 })
         .sort({ username: 1 })
         .then(response => res.json(response))
         .catch(err => next(err))
@@ -95,10 +95,10 @@ const getUserProjects = (req, res, next) => {
 
 const editUser = (req, res, next) => {
 
-    const { email, username, avatar, description, relation, projects } = req.body
+    const { email, username, avatar, description, relation, occupation, socialMedia, projects } = req.body
     const { id } = req.params
 
-    const updateUser = { email, username, avatar, description, relation, projects }
+    const updateUser = { email, username, avatar, description, relation, occupation, socialMedia, projects }
 
     User
         .findByIdAndUpdate(id, updateUser, { new: true })
