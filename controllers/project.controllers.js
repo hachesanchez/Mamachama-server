@@ -41,6 +41,20 @@ const getOneProject = (req, res, next) => {
 
 }
 
+const getLatestProjects = (req, res, next) => {
+
+    Project
+    .find()
+    .populate({
+        path:'author',
+        select: 'username'
+    })
+    .sort({createdAt: -1})
+    .limit(4)
+    .then(response => res.json(response))
+    .catch(err=> next(err))
+}
+
 
 const saveProject = (req, res, next) => {
 
@@ -85,6 +99,7 @@ const deleteProject = (req, res, next) => {
 module.exports = {
     getAllProjects,
     getOneProject,
+    getLatestProjects,
     saveProject,
     editProject,
     deleteProject
