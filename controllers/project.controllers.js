@@ -15,7 +15,7 @@ const getAllProjects = (req, res, next) => {
         //     path: 'media',
         //     select: 'url'
         // })
-        .sort({ createdAt: 1 })
+        .sort({ createdAt: -1 })
         .then(response => res.json(response))
         .catch(err => next(err))
 
